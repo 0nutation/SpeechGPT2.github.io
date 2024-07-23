@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="utf-8">
+
+	<title>SpeechGPT2</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0% auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        h2 {
+            color: #555;
+            margin-top: 2rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        ul.list-group {
+            list-style: none;
+            padding: 0;
+        }
+        .list-group-item {
+            font-size: 1.2em;
+            background: transparent;
+            border: none;
+            padding: 10px 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
+
+
+<div class="container" >
+<header role="banner">
+</header>
+<main role="main">
+<article itemscope itemtype="https://schema.org/BlogPosting">
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="column has-text-centered">
+    <h1 class="title is-1 publication-title"> <b>SpeechGPT2:</b>  </h1>
+    <h2 class="title is-2 publication-title"> End-to-End Human-Like Spoken Chatbot </h2>
+    <!-- <h2 class="title is-3 publication-title">  </h3> -->
+    </div>
+    <!-- <br> -->
+    <div class="is-size-5">
+        <span class="author-block">
+          <h4 style="text-align: center;"><b>Authors: </b>Dong Zhang, Qian Tu<sup>*</sup>, Ruifan Deng<sup>*</sup>, Jun Zhan<sup>*</sup>, Zixin Wang<sup>*</sup>, Xingjian Zhao,<br> Ke Chen, Xin Zhang, Pengyu Wang, Zhaowei Li, Shimin Li, <br>Yaqian Zhou, Xipeng Qiu</h4>
+    </div>
+
+    <div class="is-size-5 publication-authors">
+        <span class="author-block"><h5 style="text-align: center;"> (<sup>*</sup>Equal Contribution) </h5></span>
+        <span class="author-block"><h4 style="text-align: center;">School of Computer Science, Fudan University</h4></span>
+        <span class="author-block"><h4 style="text-align: center;">dongzhang22@m.fudan.edu.cn</h4></span>
+    </div>
+
+
+    <div class="column has-text-centered">
+        <span class="link-block">
+            <a href="https://github.com/0nutation/SpeechGPT" target="_blank"
+            class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="fab fa-github"></i>
+            </span>
+            <span>Github</span>
+            </a>
+        </span>
+
+        <!-- <span class="link-block">
+            <a href="" target="_blank"
+            class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="ai ai-arxiv"></i>
+            </span>
+            <span>Paper</span>
+            </a>
+        </span> -->
+
+
+    </div>
+</div>
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Overview</h2>
+        </div>
+    </div>
+    <p style="font-size: 18px;">
+        SpeechGPT2 is an end-to-end speech dialogue language model, similar to GPT-4o. It can perceive and express emotions, and provide appropriate voice responses in various styles such as rap, drama, robot, funny, and whisper, based on context and human instructions. To address the issue of lengthy speech sequences, SpeechGPT2 employs an ultra-low bitrate speech codec (750bps) that models both semantic and acoustic information. It utilizes a Multi-Input-Multi-Output Language Model (MIMO-LM). Currently, SpeechGPT2 is still a turn-based dialogue system. We are in the process of developing a full-duplex version of real-time SpeechGPT2 and have already made some promising progress.
+        <br><br>SpeechGPT2 is a technological exploration under limited resources. Constrained by computing and data resources, it still has some shortcomings, such as noise robustness in speech understanding and stability of sound quality in speech generation. We plan to open source the technical report, code, and model weights in the future.
+    </p>
+
+</div>
+
+
+
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Drama</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/drama.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Rap 1</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/rap1.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+	
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Rap 2</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/rap2.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Whisper</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/whispering.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Robot</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/robot.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Funny</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/funny.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Emotional 1</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/emotion1.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Emotional 2</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/emotion2.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Shout</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/shout.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Conversational</h2>
+        </div>
+      </div>
+
+    <div class="text-center">
+        <video width="50%" controls="">
+            <source src="mp4/conversational.mp4" type="video/mp4"> 
+        </video>
+    </div>
+</div>
+
+
+	
+
+
+
+
+
+<div class="container">
+    <h1>SpeechGPT2 Details</h1>
+    
+    <h2>Speech Codec</h2>
+    <ul class="list-group">
+        <li class="list-group-item">• Semantic & acoustic information modeling</li>
+        <li class="list-group-item">• Ultra-low bitrate (750bps: 25hz * RVQ3)</li>
+    </ul>
+
+    <h2>Model Architecture</h2>
+    <ul class="list-group">
+        <li class="list-group-item">• MIMO-LM (Multi-Input-Multi-Output Language Model)</li>
+        <li class="list-group-item">• Initialized from 7B text LLM</li>
+    </ul>
+
+    <h2>Inference</h2>
+    <ul class="list-group">
+        <li class="list-group-item">• Generating one second of speech requires 25 autoregressive decoding steps</li>
+    </ul>
+
+    <h2>Pre-trained Data</h2>
+    <ul class="list-group">
+        <li class="list-group-item">• Over 100k hours of academic and in-the-wild speech data</li>
+        <li class="list-group-item">• Fine-grained style descriptions for each speech-text pair</li>
+    </ul>
+
+    <h2>Dialogue Data</h2>
+    <ul class="list-group">
+        <li class="list-group-item">• 100k data points</li>
+        <li class="list-group-item">• High-quality multi-turn conversational spoken dialogues</li>
+        <li class="list-group-item">• Multi-turn emotional spoken dialogues</li>
+        <li class="list-group-item">• Multi-turn speech style control spoken dialogues</li>
+    </ul>
+
+    <h2>Next Steps</h2>
+    <ul class="list-group">
+        <li class="list-group-item">• Full Duplex Real-time large language model (Working on this)</li>
+        <li class="list-group-item">• Streaming pipeline (codec + LLM)</li>
+        <li class="list-group-item">• Scale up data & model size</li>
+    </ul>
+</div>
